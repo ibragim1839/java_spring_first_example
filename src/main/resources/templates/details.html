@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Details</title>
+    <link href="/css/bootstrap.css" type="text/css" rel="stylesheet">
+</head>
+<body>
+<div th:insert="~{'navbar.html'}"></div>
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-8 mx-auto">
+            <table class="table table-striped">
+                <thead>
+                <tr>
+                    <th>Название данной машины</th>
+                    <th th:text="${car.name}"></th>
+                </tr>
+                <tr>
+                    <th>Ее модель</th>
+                    <th th:text="${car.model}"></th>
+                </tr>
+                <tr>
+                    <th>Ее ценв</th>
+                    <th th:text="${car.price}"></th>
+                </tr>
+                <tr>
+                    <th>Она была выпущенна в</th>
+                    <th th:text="'в ' +${car.year} + ' году'"></th>
+                </tr>
+                <tr>
+                    <th>В стране</th>
+                    <th th:text="${car.country.name} + '/' + ${car.country.code}"></th>
+                </tr>
+                </thead>
+            </table>
+        </div>
+    </div>
+</div>
+</body>
+</html>

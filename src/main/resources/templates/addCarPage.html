@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Add car</title>
+    <link href="/css/bootstrap.css" type="text/css" rel="stylesheet">
+</head>
+<body>
+<div th:insert="~{'navbar.html'}"></div>
+<div class="container">
+    <div class="row">
+        <div class="col-6 mx-auto mt-5">
+            <form th:action="@{'/addCar'}" method="post">
+                <div class="mb-3">
+                    <label for="input1" class="form-label">Название машины</label>
+                    <input id="input1" class="form-control" name="name" type="text">
+                </div>
+                <div class="mb-3">
+                    <label for="input2" class="form-label">Название модели</label>
+                    <input id="input2" class="form-control" name="model" type="text">
+                </div>
+                <div class="mb-3">
+                    <label for="input4" class="form-label">Цена</label>
+                    <input id="input4" class="form-control" name="price" type="number">
+                </div>
+                <div class="mb-3">
+                    <label for="input5" class="form-label">Год выпуска</label>
+                    <input id="input5" class="form-control" name="year" type="number">
+                </div>
+                <div class="mb-3">
+                    <label for="input6" class="form-label">Учитель</label>
+                    <select id="input6" class="form-select" name="country">
+                        <option th:each="country : ${countries}" th:value="${country.id}"
+                                th:text="${country.name} + ' / ' + ${country.code}" >
+                    </select>
+                </div>
+                <button type="submit" class="btn btn-success mt-3">Добавить машину</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Main Page</title>
+    <link href="/css/bootstrap.css" type="text/css" rel="stylesheet">
+</head>
+<body>
+<div th:insert="~{'navbar.html'}"></div>
+ <div class="container mt-5">
+     <div class="row">
+         <div class="col-8 mx-auto">
+             <table class="table table-striped">
+                 <thead>
+                     <tr>
+                         <th>name</th>
+                         <th>model</th>
+                         <th>price</th>
+                         <th>year</th>
+                         <th>country</th>
+                         <th>details</th>
+                     </tr>
+                 </thead>
+                 <tbody>
+                    <tr th:each="car : ${cars}">
+                        <td th:text="${car.name}"></td>
+                        <td th:text="${car.model}"></td>
+                        <td th:text="${car.price}"></td>
+                        <td th:text="${car.year}"></td>
+                        <td th:text="${car.country.name}"></td>
+                        <td style="width: 15%"><a th:href="@{'/details/'+${car.id}}"><button class="btn btn-success">Details</button></a></td>
+
+                    </tr>
+                 </tbody>
+             </table>
+         </div>
+     </div>
+ </div>
+</body>
+</html>
